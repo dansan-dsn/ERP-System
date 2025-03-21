@@ -49,12 +49,12 @@ p:last-child {
  * Selection color
  */
 ::-moz-selection {
-  background-color: #fa6862;
+  background-color: #786767;
   color: #fff;
 }
 
 ::selection {
-  background-color: #fa6862;
+  background-color: #786767;
   color: #fff;
 }
 

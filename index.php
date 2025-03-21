@@ -27,12 +27,12 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="welcome.php" class="hex-content">
+                <a href="income.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="tf-dial"></i>
                     </span>
-                    <span class="title">Welcome</span>
+                    <span class="title">Income</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">
@@ -53,12 +53,12 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="about.php" class="hex-content">
+                <a href="expenditure.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="tf-profile-male"></i>
                     </span>
-                    <span class="title">Loan</span>
+                    <span class="title">Expenditure</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">
@@ -77,108 +77,12 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="services.php" class="hex-content">
+                <a href="loans.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="tf-tools-2"></i>
                     </span>
-                    <span class="title">Services</span>
-                  </span>
-                  <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="hexagon-item">
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <a href="resume.php" class="hex-content">
-                  <span class="hex-content-inner">
-                    <span class="icon">
-                      <i class="tf-tools"></i>
-                    </span>
-                    <span class="title">Resume</span>
-                  </span>
-                  <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="hexagon-item">
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <a href="works.php" class="hex-content">
-                  <span class="hex-content-inner">
-                    <span class="icon">
-                      <i class="tf-briefcase2"></i>
-                    </span>
-                    <span class="title">Works</span>
-                  </span>
-                  <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="hexagon-item">
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <a href="testimonials.php" class="hex-content">
-                  <span class="hex-content-inner">
-                    <span class="icon">
-                      <i class="tf-chat"></i>
-                    </span>
-                    <span class="title">Testimonials</span>
-                  </span>
-                  <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="hexagon-item">
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="hex-item">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <a href="contact.php" class="hex-content">
-                  <span class="hex-content-inner">
-                    <span class="icon">
-                      <i class="tf-envelope2"></i>
-                    </span>
-                    <span class="title">Contact</span>
+                    <span class="title">Loans</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">

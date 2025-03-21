@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="plugins/animate.css">
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  <link rel="stylesheet" href="plugins/themefisher-fonts/css/themefisher-fonts.min.css">  
+  <link rel="stylesheet" href="plugins/themefisher-fonts/css/themefisher-fonts.min.css">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -53,8 +53,8 @@
     <div class="switcher-body">
       <h4>Choose Color:</h4>
       <ul class="color-options list-none">
-        <li class="c0" data-color="red" title="Default">Default</li>
-        <li class="c1" data-color="blue" title="Red">Red</li>
+        <li class="c1" data-color="blue" title="Default">Default</li>
+        <li class="c0" data-color="red" title="Red">Red</li>
         <li class="c2" data-color="green" title="Green">Green</li>
         <li class="c3" data-color="yellow" title="Blue">Blue</li>
       </ul>
