@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54b98bec-c5da-47d5-95ba-15aee4c1dd36" name="Changes" comment="setup">
-      <change afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-    </list>
+    <list default="true" id="54b98bec-c5da-47d5-95ba-15aee4c1dd36" name="Changes" comment="temp" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +76,7 @@
       <workItem from="1742287550023" duration="9056000" />
       <workItem from="1742502636147" duration="1022000" />
       <workItem from="1742504030438" duration="801000" />
-      <workItem from="1742504865330" duration="3452000" />
+      <workItem from="1742504865330" duration="3790000" />
     </task>
     <task id="LOCAL-00001" summary="setup">
       <option name="closed" value="true" />
@@ -90,7 +86,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742239011454</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="temp">
+      <option name="closed" value="true" />
+      <created>1742535774409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742535774409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="temp">
+      <option name="closed" value="true" />
+      <created>1742535875975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742535875975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +110,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup" />
+    <MESSAGE value="temp" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp" />
   </component>
 </project>
