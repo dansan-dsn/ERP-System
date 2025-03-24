@@ -10,8 +10,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-            <div class="page-title home text-center">
-              <img src="images/phantom.png" alt="">
+            <div class="page-title home text-center"><h1 class="head-title">TRANSACTION MANAGER</h1>
               <p>An Expense manager platform. Learn and track how you spend your money.</p>
             </div>
 
@@ -30,7 +29,7 @@
                 <a href="income.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-dial"></i>
+                      <i class="fas fa-money-bill-wave"></i>
                     </span>
                     <span class="title">Income</span>
                   </span>
@@ -56,7 +55,7 @@
                 <a href="expenditure.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-profile-male"></i>
+                      <i class="fas fa-wallet"></i>
                     </span>
                     <span class="title">Expenditure</span>
                   </span>
@@ -80,7 +79,7 @@
                 <a href="loans.php" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-tools-2"></i>
+                      <i class="fas fa-credit-card"></i>
                     </span>
                     <span class="title">Loans</span>
                   </span>

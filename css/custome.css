@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif !important;
+}
+
+.head-title {
+    font-size: 3em;
+    font-weight: bolder;
+    text-shadow: 1px 1px #180e0e;
+    color: #7494da;
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-bottom: 2em;
+}
+
+.hex-item:hover {
+    background-color: blue !important;
+}

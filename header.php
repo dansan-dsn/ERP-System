@@ -23,9 +23,11 @@
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/themefisher-fonts/css/themefisher-fonts.min.css">
+    <link rel="stylesheet" href="css/custome.css" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
   
   <!-- Theme Stylesheet -->
   <link rel="stylesheet" href="#" id="color-changer">
