@@ -31,7 +31,7 @@ const save = async () => {
 
 <template>
   <v-card>
-    <v-card-title class="bg-secondary text-white">
+    <v-card-title class="bg-primary text-white">
       {{ isEditing ? "Edit Category" : "Create Category" }}
     </v-card-title>
     <v-form ref="formRef" @submit.prevent="save">
@@ -80,7 +80,7 @@ const save = async () => {
         >
           Cancel
         </v-btn>
-        <v-btn color="secondary" size="small" variant="elevated" type="submit">
+        <v-btn color="primary" size="small" variant="elevated" type="submit">
           Save
         </v-btn>
       </v-card-actions>

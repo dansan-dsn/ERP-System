@@ -9,6 +9,7 @@ import type {
 } from "@/shared/types/dataTable";
 import { useDialogStore } from "@/stores/dialog";
 import CategoryDialog from "@/components/dialog/CategoryDialog.vue";
+import { VChip } from "vuetify/components";
 
 // Reactive state
 const dialogStore = useDialogStore();
@@ -16,8 +17,8 @@ const loading = ref(false);
 const categories = ref<Category[]>([]);
 const search = ref("");
 const tableOptions = ref<DataTableOptions>({
-  page: 10,
-  itemsPerPage: 2,
+  page: 1,
+  itemsPerPage: 10,
   sortBy: [{ key: "id", order: "asc" }],
 });
 
@@ -28,13 +29,13 @@ const headers: DataTableHeader[] = [
     key: "id",
     align: "start",
     width: "80px",
-    sortable: true,
+    // sortable: true,
   },
   {
     title: "NAME",
     key: "name",
     align: "start",
-    sortable: true,
+    // sortable: true,
   },
   {
     title: "SLUG",
@@ -47,11 +48,10 @@ const headers: DataTableHeader[] = [
     align: "center",
     render: (value: string) =>
       h(
-        "v-chip",
+        VChip,
         {
-          color: "primary",
+          color: value === "retail" ? "primary" : "secondary",
           size: "small",
-          class: value === "retail" ? "text-secondary " : "text-primary ",
         },
         value
       ),
@@ -62,11 +62,10 @@ const headers: DataTableHeader[] = [
     align: "center",
     render: (value: string) =>
       h(
-        "v-chip",
+        VChip,
         {
           color: value === "active" ? "success" : "warning",
           size: "small",
-          class: value === "active" ? "text-success" : "text-error",
         },
         value
       ),
@@ -123,7 +122,7 @@ const deleteCategory = async (category: Category) => {
   const confirmed = await dialogStore.openDialog({
     type: "confirm",
     title: "Confirm Deletion",
-    message: `Are you sure you want to delete "${category.name}"?`,
+    message: `Are you sure you want to delete ( ${category.name} )?`,
   });
 
   if (!confirmed) return;
@@ -148,7 +147,7 @@ onMounted(() => {
     <div class="d-flex justify-space-between align-center mb-6">
       <h1 class="text-h5 font-weight-bold">Product Categories</h1>
       <v-btn
-        color="secondary"
+        color="primary"
         prepend-icon="mdi-plus-circle"
         size="small"
         @click="editCategory(getDefaultCategory())"

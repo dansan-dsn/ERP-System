@@ -15,6 +15,8 @@ const props = defineProps<{
   searchable?: boolean;
 }>();
 
+import { VDataTable } from "vuetify/components";
+
 const emit = defineEmits(["update:options", "refresh"]);
 
 const internalOptions = ref<DataTableOptions>({
@@ -84,7 +86,7 @@ function refreshData() {
       />
     </v-card-title>
 
-    <v-data-table-server
+    <v-data-table
       v-model:items-per-page="internalOptions.itemsPerPage"
       v-model:page="internalOptions.page"
       v-model:sort-by="internalOptions.sortBy"
@@ -121,7 +123,7 @@ function refreshData() {
             v-if="actions.edit"
             icon
             size="small"
-            color="secondary"
+            color="primary"
             variant="text"
             @click="handleEdit(item)"
             title="Edit"
@@ -168,6 +170,14 @@ function refreshData() {
           <v-pagination
             v-model="internalOptions.page"
             rounded="circle"
+            density="compact"
+            color="black"
+            :total-visible="5"
+            next-icon="mdi-menu-right"
+            prev-icon="mdi-menu-left"
+            :value="internalOptions.page"
+            :disabled="loading"
+            @update:model-value="$emit('update:options', $event)"
             :length="
               Math.ceil(
                 filteredItems.length / (internalOptions.itemsPerPage || 10)
@@ -176,7 +186,7 @@ function refreshData() {
           />
         </div>
       </template>
-    </v-data-table-server>
+    </v-data-table>
   </v-card>
 </template>
 
