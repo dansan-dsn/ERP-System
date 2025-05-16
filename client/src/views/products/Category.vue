@@ -1,133 +1,194 @@
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, h } from "vue";
+import DataTable from "@/components/data-table/DataTable.vue";
+import { CategoryService } from "@/shared/services/category";
+import type { Category } from "@/shared/interface/category";
+import type {
+  DataTableHeader,
+  DataTableOptions,
+} from "@/shared/types/dataTable";
+import { useDialogStore } from "@/stores/dialog";
+import CategoryDialog from "@/components/dialog/CategoryDialog.vue";
 
+// Reactive state
+const dialogStore = useDialogStore();
+const loading = ref(false);
+const categories = ref<Category[]>([]);
 const search = ref("");
+const tableOptions = ref<DataTableOptions>({
+  page: 10,
+  itemsPerPage: 2,
+  sortBy: [{ key: "id", order: "asc" }],
+});
 
-const headers = [
-  { title: "#", key: "id" },
-  { title: "Name", key: "name" },
-  { title: "Slug", key: "slug" },
-  { title: "Business Type", key: "type" },
-  { title: "Status", key: "status" },
-];
-const productCategories = [
+// Table configuration
+const headers: DataTableHeader[] = [
   {
-    id: 1,
-    name: "Point of Sale Devices",
-    slug: "point-of-sale-devices",
-    type: "retail",
-    status: "active",
+    title: "#",
+    key: "id",
+    align: "start",
+    width: "80px",
+    sortable: true,
   },
   {
-    id: 2,
-    name: "Storage & Shelving",
-    slug: "storage-shelving",
-    type: "wholesale",
-    status: "inactive",
+    title: "NAME",
+    key: "name",
+    align: "start",
+    sortable: true,
   },
   {
-    id: 3,
-    name: "Packaging Materials",
-    slug: "packaging-materials",
-    type: "retail",
-    status: "active",
+    title: "SLUG",
+    key: "slug",
+    align: "start",
   },
   {
-    id: 4,
-    name: "Shop Signage",
-    slug: "shop-signage",
-    type: "wholesale",
-    status: "active",
+    title: "TYPE",
+    key: "type",
+    align: "center",
+    render: (value: string) =>
+      h(
+        "v-chip",
+        {
+          color: "primary",
+          size: "small",
+          class: value === "retail" ? "text-secondary " : "text-primary ",
+        },
+        value
+      ),
   },
   {
-    id: 5,
-    name: "Security Equipment",
-    slug: "security-equipment",
-    type: "retail",
-    status: "active",
+    title: "STATUS",
+    key: "status",
+    align: "center",
+    render: (value: string) =>
+      h(
+        "v-chip",
+        {
+          color: value === "active" ? "success" : "warning",
+          size: "small",
+          class: value === "active" ? "text-success" : "text-error",
+        },
+        value
+      ),
   },
   {
-    id: 6,
-    name: "Display Accessories",
-    slug: "display-accessories",
-    type: "retail",
-    status: "inactive",
-  },
-  {
-    id: 7,
-    name: "Cleaning Supplies",
-    slug: "cleaning-supplies",
-    type: "wholesale",
-    status: "active",
-  },
-  {
-    id: 8,
-    name: "Cash Handling Tools",
-    slug: "cash-handling-tools",
-    type: "retail",
-    status: "active",
-  },
-  {
-    id: 9,
-    name: "Labeling Equipment",
-    slug: "labeling-equipment",
-    type: "retail",
-    status: "inactive",
-  },
-  {
-    id: 10,
-    name: "Shop Essentials",
-    slug: "shop-essentials",
-    type: "wholesale",
-    status: "active",
+    title: "ACTIONS",
+    key: "actions",
+    align: "end",
+    width: "150px",
   },
 ];
 
-function getColor(status) {
-  if (status === "active") return "success";
-  else return "warning";
-}
+// Helper function for default category
+const getDefaultCategory = (): Category => ({
+  id: 0,
+  name: "",
+  slug: "",
+  type: "retail",
+  status: "active",
+});
+
+// Data operations
+const loadCategories = async () => {
+  try {
+    loading.value = true;
+    categories.value = await CategoryService.loadCategories();
+  } finally {
+    loading.value = false;
+  }
+};
+
+const editCategory = async (category: Category) => {
+  try {
+    const result = await dialogStore.openDialog({
+      type: "category",
+      title: category.id ? "Edit Category" : "Create Category",
+      component: CategoryDialog,
+      props: {
+        category: { ...category },
+        isEditing: !!category.id,
+      },
+    });
+    if (result) {
+      loading.value = true;
+      await CategoryService.saveCategory(result as Category);
+      await loadCategories();
+    }
+  } finally {
+    loading.value = false;
+  }
+};
+
+const deleteCategory = async (category: Category) => {
+  const confirmed = await dialogStore.openDialog({
+    type: "confirm",
+    title: "Confirm Deletion",
+    message: `Are you sure you want to delete "${category.name}"?`,
+  });
+
+  if (!confirmed) return;
+
+  try {
+    loading.value = true;
+    await CategoryService.deleteCategory(category.id);
+    await loadCategories();
+  } finally {
+    loading.value = false;
+  }
+};
+
+// Initialize component
+onMounted(() => {
+  loadCategories();
+});
 </script>
 
 <template>
-  <div>
-    <div class="mt-10 my-5">
-      <p>Manage your categories</p>
-    </div>
-    <v-card flat>
-      <v-card-title class="d-flex align-center pe-2 my-3">
-        <v-icon icon="mdi-video-input-component"></v-icon> &nbsp; Find Product
-        Categories
-
-        <v-spacer></v-spacer>
-
-        <v-text-field
-          v-model="search"
-          density="compact"
-          label="Search"
-          prepend-inner-icon="mdi-magnify"
-          variant="solo-filled"
-          flat
-          hide-details
-          single-line
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="productCategories"
-        v-model:search="search"
-        :filter-keys="['name', 'slug', 'type', '']"
+  <div class="product-categories-view">
+    <div class="d-flex justify-space-between align-center mb-6">
+      <h1 class="text-h5 font-weight-bold">Product Categories</h1>
+      <v-btn
+        color="secondary"
+        prepend-icon="mdi-plus-circle"
+        size="small"
+        @click="editCategory(getDefaultCategory())"
       >
-        <template v-slot:item.status="{ value }">
-          <v-chip
-            :border="`${getColor(value)} thin opacity-25`"
-            :color="getColor(value)"
-            :text="value"
-            size="x-small"
-          ></v-chip>
-        </template>
-      </v-data-table>
-      <v-divider></v-divider>
-    </v-card>
+        New Category
+      </v-btn>
+    </div>
+
+    <DataTable
+      :headers="headers"
+      :items="categories"
+      :loading="loading"
+      :options="tableOptions"
+      :search="search"
+      :actions="{
+        edit: editCategory,
+        delete: deleteCategory,
+      }"
+      searchable
+      @update:options="tableOptions = $event"
+      @update:search="search = $event"
+      @refresh="loadCategories"
+    >
+      <template #title>
+        <v-icon icon="mdi-view-grid" class="me-2" />
+        <span>Category List</span>
+      </template>
+    </DataTable>
   </div>
 </template>
+
+<style scoped>
+.product-categories-view {
+  margin: 0 auto;
+  /* padding: 20px; */
+  /* max-width: 1200px; */
+}
+
+/* Ensure chips have proper spacing */
+.v-chip {
+  margin: 0 2px;
+}
+</style>
